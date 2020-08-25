@@ -6,6 +6,8 @@ author: "GC"
 depend:
 - Essentials
 - AdvancedEnchantments
+softdepend:
+  - PlaceholderAPI
 commands:
   kit:
     aliases: [ekit, ekits, kits, givekit, essentialskit]

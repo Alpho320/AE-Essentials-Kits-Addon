@@ -4,6 +4,8 @@ import com.earth2me.essentials.Essentials;
 import gc.aeaddon.esskits.commands.KitsCommand;
 import gc.aeaddon.esskits.handlers.CooldownManager;
 import gc.aeaddon.esskits.handlers.KitsManager;
+import gc.aeaddon.esskits.utils.CooldownExpansion;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class Core extends JavaPlugin {
@@ -25,7 +27,10 @@ public class Core extends JavaPlugin {
         cooldownManager = new CooldownManager(this);
         kitsManager = new KitsManager(this);
 
-        getCommand("kit").setExecutor(new KitsCommand());
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) new CooldownExpansion().register();
+
+
+            getCommand("kit").setExecutor(new KitsCommand());
     }
 
     @Override
